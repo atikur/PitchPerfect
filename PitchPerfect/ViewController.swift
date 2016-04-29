@@ -9,17 +9,36 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    // MARK: - Properties
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    @IBOutlet weak var recordButton: UIButton!
+    @IBOutlet weak var stopButton: UIButton!
+    @IBOutlet weak var recordingLabel: UILabel!
+    
+    // MAKR: -
+    
+    override func viewWillAppear(animated: Bool) {
+        configureUI(recording: false)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    // MARK: - Actions
+    
+    @IBAction func recordButtonPressed(sender: UIButton) {
+        configureUI(recording: true)
     }
-
+    
+    @IBAction func stopButtonPressed(sender: UIButton) {
+        configureUI(recording: false)
+    }
+    
+    // MARK: - Helpers
+    
+    func configureUI(recording recording: Bool) {
+        recordButton.enabled = !recording
+        stopButton.enabled = recording
+        recordingLabel.text = recording ? "Recording in Progress" : "Tap to Record"
+    }
 
 }
 

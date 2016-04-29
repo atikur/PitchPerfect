@@ -20,6 +20,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sOM-Uy-pn0">
                                 <rect key="frame" x="250" y="250" width="100" height="100"/>
                                 <state key="normal" image="microphone2x-iphone"/>
+                                <connections>
+                                    <action selector="recordButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hh2-Wk-au9"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to Record" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iOJ-dZ-m4e">
                                 <rect key="frame" x="247" y="381" width="107" height="21"/>
@@ -30,6 +33,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cnn-xu-s8f">
                                 <rect key="frame" x="275" y="425" width="50" height="50"/>
                                 <state key="normal" image="stop2x-iphone"/>
+                                <connections>
+                                    <action selector="stopButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kUd-d6-6G2"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -42,6 +48,11 @@
                             <constraint firstItem="iOJ-dZ-m4e" firstAttribute="centerX" secondItem="sOM-Uy-pn0" secondAttribute="centerX" id="pr9-cD-uxh"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="recordButton" destination="sOM-Uy-pn0" id="TqD-7I-Olr"/>
+                        <outlet property="recordingLabel" destination="iOJ-dZ-m4e" id="DYz-Br-W7Z"/>
+                        <outlet property="stopButton" destination="cnn-xu-s8f" id="vfa-U8-MDj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
