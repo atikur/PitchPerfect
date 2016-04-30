@@ -71,6 +71,8 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     func audioRecorderDidFinishRecording(recorder: AVAudioRecorder, successfully flag: Bool) {
         if flag {
             performSegueWithIdentifier(RecordSoundsViewController.identifierStopRecordingSegue, sender: audioRecorder.url)
+        } else {
+            showRecordingFailedAlert()
         }
     }
     
@@ -87,6 +89,13 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         let recordingName = "recordedVoice.wav"
         let pathArray = [dirPath, recordingName]
         return NSURL.fileURLWithPathComponents(pathArray)!
+    }
+    
+    func showRecordingFailedAlert() {
+        let alertController = UIAlertController(title: "Recording Failed", message: "Something went wrong! Please record again!", preferredStyle: .Alert)
+        let okayAction = UIAlertAction(title: "Okay", style: .Default, handler: nil)
+        alertController.addAction(okayAction)
+        presentViewController(alertController, animated: true, completion: nil)
     }
 }
 
