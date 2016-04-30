@@ -10,12 +10,24 @@ import UIKit
 
 class PlaySoundsViewController: UIViewController {
     
+    @IBOutlet var soundEffectButtons: [UIButton]!
+    @IBOutlet weak var stopButton: UIButton!
+    
     var recordedAudioURL: NSURL!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(recordedAudioURL)
+        setContentModeForButtons()
     }
     
+    // MARK: - Helpers
+    
+    func setContentModeForButtons() {
+        for button in soundEffectButtons {
+            button.imageView?.contentMode = .ScaleAspectFit
+        }
+        
+        stopButton.imageView?.contentMode = .ScaleAspectFit
+    }
 }
